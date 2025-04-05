@@ -5,6 +5,8 @@ const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 export const fetchMedicalCosts = async (procedure: string, code: string, location: string) => {
   const prompt = `What is the average cost of procedure ${procedure} (${code}) in ${location}?`;
 
+  console.log("OPENAI KEY in env:", OPENAI_API_KEY); // 👈 Add this
+
   try {
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
